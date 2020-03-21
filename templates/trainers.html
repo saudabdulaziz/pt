@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block head %}
+<title>Trainers</title>
+{% endblock %} {% block body %}
+<h1>trainers Page</h1>
+
+<hr />
+<h2>Create a new trainer post:</h2>
+<form action="/trainers" method="POST">
+  Title: <input type="text" name="title" id="title" />
+  <br />
+  Post: <input type="text" name="content" id="content" />
+  <br />
+  <input type="submit" value="Post" />
+</form>
+
+<hr />
+
+{% for trainer in trainers %}
+<h1>{{trainer.title}}</h1>
+<h2>written by: {{ trainer.author }} on {{trainer.data_posted}}</h2>
+<p>{{ trainer.content }}</p>
+{% endfor %} {% endblock %}
